@@ -12,7 +12,15 @@
  *      all the letters other than the first letter of sentences to lowercase. The first letter of
  *      sentences should be made uppercase. The revised contents should be stored in the second file.
  *
- *
+ * ALGORITHM:
+ *      1. Declare needed variables
+ *      2. PROMPT user for the input file name.
+ *      3. PROMPT user for the output file name.
+ *      4. Open the file streams, check for errors.
+ *      5. Read the file one char at a time, if 'toUpper' is flagged to true,
+ *          convert the char to uppercase. After each period, set toUpper to true.
+ *          After converting to uppercase, set toUpper to false.
+ *          Ignore non-letters and non-periods.
  *
  *
  */
@@ -23,10 +31,12 @@ using namespace std;
 
 int main() {
 
+    // declare variables
     string inputFileName, outputFileName, line;
     bool toUpper = true;
     char ch;
 
+    // input file name
     cout << "Welcome to the demo of project 6!" << endl;
     cout << "Please enter an input file name: ";
 
@@ -34,12 +44,12 @@ int main() {
 
     cout << "Please enteer an output file name: ";
 
+    // output file name
     cin >> outputFileName;
 
     // opening file streams
     ifstream inFile;
     ofstream outFile;
-
     inFile.open(inputFileName, ios::in);
     outFile.open(outputFileName, ios::out);
 
